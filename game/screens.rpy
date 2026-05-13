@@ -21,10 +21,10 @@ screen main_menu():
         textbutton "Load Game" action ShowMenu("load") xalign 0.5
         textbutton "Quit" action Quit() xalign 0.5
 
-## ── PROTAGONIST SETUP ────────────────────────────────────────────────────────
-## Player creates their character before starting the game
+## ── SPECIES SELECTION ─────────────────────────────────────────────────────────
+## Player chooses their character species after entering their name
 
-screen protagonist_setup():
+screen species_select():
     tag menu
 
     ## Background (replace with final UI asset)
@@ -36,15 +36,7 @@ screen protagonist_setup():
         spacing 30
 
         ## Title
-        text "Create Your Character" size 36 color "#f5e6c8" xalign 0.5
-
-        ## Name input
-        text "Name:" size 24 color "#f5e6c8"
-        input:
-            xalign 0.5
-            ysize 40
-            value VariableInput(protagonist_name, length=20)
-            allow "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890 "
+        text "Choose Your Species" size 36 color "#f5e6c8" xalign 0.5
 
         ## Species selection
         text "Species:" size 24 color "#f5e6c8"
@@ -59,13 +51,13 @@ screen protagonist_setup():
                     selected (protagonist_species == species)
                     color "#a8d8a8" if protagonist_species == species else "#666666"
 
-        ## Continue button (only enabled if both fields are filled)
+        ## Continue button (only enabled if species is selected)
         textbutton "Continue" action Return():
             xalign 0.5
             ysize 50
             xsize 150
-            enabled (protagonist_name != "" and protagonist_species != "")
-            color "#f5e6c8" if (protagonist_name != "" and protagonist_species != "") else "#666666"
+            enabled (protagonist_species != "")
+            color "#f5e6c8" if (protagonist_species != "") else "#666666"
 
 ## ── HUD / DAY DISPLAY ────────────────────────────────────────────────────────
 ## Shown during gameplay. Displays current day.

@@ -19,7 +19,9 @@ label start:
     ## ── PROTAGONIST SETUP ────────────────────────────────────────────────────
     ## Player creates their protagonist character
 
-    call screen protagonist_setup
+    $ protagonist_name = renpy.input("Enter your name:", length=20)
+    $ protagonist_name = protagonist_name.strip() or "Alex"
+    call screen species_select
 
     ## ── SCENE: ARRIVAL ───────────────────────────────────────────────────────
 
@@ -44,8 +46,7 @@ label day_loop:
         jump ending
 
     ## Daily event selection
-    $ available_events = ["event_morning", "event_afternoon", "event_evening"]
-    $ selected_event = renpy.random.choice(available_events)
+    $ selected_event = renpy.random.choice(["event_morning", "event_afternoon", "event_evening"])
     call expression selected_event
 
     ## TODO: Add daily event selection logic here
