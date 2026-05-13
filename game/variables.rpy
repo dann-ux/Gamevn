@@ -7,6 +7,18 @@
 default protagonist_name = "Alex"
 default protagonist_species = "Unknown"
 
+## ── CHARACTER POOL ───────────────────────────────────────────────────────────
+## All available characters for random selection in each playthrough.
+## Characters are randomly selected to populate active_characters at game start.
+
+default character_pool = ["char1", "char2", "char3", "char4"]
+
+## ── ACTIVE CHARACTERS ────────────────────────────────────────────────────────
+## Characters active in this playthrough. Populated at game start.
+## Convention: Same IDs as character_pool.
+
+default active_characters = []
+
 ## ── RELATIONSHIP POINTS ──────────────────────────────────────────────────────
 ## One variable per character. Invisible to the player.
 ## Convention: rel_[character_id]
@@ -29,9 +41,6 @@ default flag_first_day_complete = False
 ## ── RANDOMNESS FLAGS ─────────────────────────────────────────────────────────
 ## Randomness is rolled at game start and stored here.
 ## This ensures consistency within a single playthrough.
-
-## Active characters this playthrough (populated on new game)
-default active_characters = []
 
 ## Random event pool seed (set at new game start)
 default event_seed = 0

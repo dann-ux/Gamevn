@@ -9,15 +9,17 @@ label start:
     ## Roll randomness values for this playthrough
     $ event_seed = renpy.random.randint(1000, 9999)
     $ max_days = renpy.random.randint(14, 28)
+    
+    ## Populate active characters - select 3 random characters from pool
+    $ active_characters = renpy.random.sample(character_pool, 3)
 
     ## Mark arrival
     $ flag_arrived_at_camp = True
 
     ## ── PROTAGONIST SETUP ────────────────────────────────────────────────────
-    ## TODO: Replace with player name/species input screen
+    ## Player creates their protagonist character
 
-    $ protagonist_name = "Alex"
-    $ protagonist_species = "Placeholder"
+    call screen protagonist_setup
 
     ## ── SCENE: ARRIVAL ───────────────────────────────────────────────────────
 
@@ -40,6 +42,11 @@ label day_loop:
     ## End condition
     if current_day > max_days:
         jump ending
+
+    ## Daily event selection
+    $ available_events = ["event_morning", "event_afternoon", "event_evening"]
+    $ selected_event = renpy.random.choice(available_events)
+    call expression selected_event
 
     ## TODO: Add daily event selection logic here
     ## This is where randomized events will be called per day
