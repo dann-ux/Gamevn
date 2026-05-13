@@ -1,0 +1,23 @@
+## characters.rpy
+## All Character() definitions live here.
+## Dialogue style, name display, and color are set per character.
+
+## ── NARRATOR ─────────────────────────────────────────────────────────────────
+
+define narrator = Character(None, kind=nvl)
+
+## ── PROTAGONIST ──────────────────────────────────────────────────────────────
+## Protagonist name is dynamic (set by player at game start).
+
+define mc = Character("[protagonist_name]", color="#f5e6c8")
+
+## ── PLACEHOLDER CHARACTERS ───────────────────────────────────────────────────
+## Replace display names, colors, and IDs when characters are finalized.
+## Color codes should match each character's palette accent.
+
+define char1 = Character("Char1", color="#a8d8a8")
+define char2 = Character("Char2", color="#f9c784")
+define char3 = Character("Char3", color="#c3aed6")
+define char4 = Character("Char4", color="#f28b82")
+
+## ── ADD NEW CHARACTERS BELOW THIS LINE ───────────────────────────────────────
