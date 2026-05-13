@@ -1,1 +1,14 @@
-.aider*
+# Ren'Py cache and build output
+game/cache/
+game/saves/
+*.rpyc
+*.rpymc
+*.pyc
+__pycache__/
+# Android build artifacts
+*.apk
+*.aab
+rapt/
+# OS junk
+.DS_Store
+Thumbs.db
